@@ -7,9 +7,9 @@ import requests
 def joke(bot, trigger):
 	
 	#for getting category (not yet tested)
-	type_temp = trigger.group(2)
+	type = trigger.group(2)
 	#to be replaced with type_temp
-	type = 'nerdy'
+	#type = 'nerdy'
 
 	query = '?limitTo=["%s"]' % type
 
