@@ -1,6 +1,7 @@
 from __future__ import with_statement
 import json
 from sopel import module
+import requests
 
 @module.commands('joke')
 def joke(bot, trigger):
@@ -9,12 +10,15 @@ def joke(bot, trigger):
 	type_temp = trigger.group(2)
 	#to be replaced with type_temp
 	type = 'nerdy'
+
 	query = '?limitTo=["%s"]' % type
-	body = web.get('http://api.icndb.com/jokes/random' + query,dont_decode=True)
-	data = json.load(body)
+
+	body = requests.get('http://api.icndb.com/jokes/random' + query)
+
+        data = body.json()
 	
-	#check if ther data is the correct data
-	if data is None or data["type"] is not 'success':
-		return bot.reply('Error at (joke). This is no Joke!')
+        #check if ther data is the correct data
+        if data is None or data['type'] != u'success':
+            return bot.reply('Error at (joke). This is no Joke! Here\'s what the dumb api said:\n' + data)
 	
-	bot.say(data["value"]["joke"])
+	bot.say(data['value']['joke'])
