@@ -17,6 +17,7 @@ Use this if you want to insert a quick joke into the conversation in Sopel
 
 #####Refrences
 *[Api-Bank for jokes][1]*
-
+*[#Hack.carleton git irc bot][2]*
 
 [1]:http://www.icndb.com/api/
+[2]:https://github.com/guyhughes/scsprof
