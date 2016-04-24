@@ -1,5 +1,4 @@
 from __future__ import with_statement
-import json
 from sopel import module
 import requests
 
